@@ -16,7 +16,7 @@ export const MetaTags = ({ tags, setTags }: MetaTagsProps) => {
             <DialogHeader>
                 <DialogTitle>Meta Tags</DialogTitle>
                 <DialogDescription>
-                    Add meta tags to your project to improve SEO. You can also add CND's for libraries like Bootstrap, TailwindCSS, etc.
+                    {"Add meta tags to your project to improve SEO. You can also add CNDs for libraries like Bootstrap, TailwindCSS, etc."}
                 </DialogDescription>
             </DialogHeader>
             <div className="flex flex-col space-y-4">

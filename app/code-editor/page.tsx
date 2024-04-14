@@ -44,17 +44,19 @@ export default function CodeEditor() {
 
 
     useEffect(() => {
-        const handleKeyDown = (event: any) => {
-            if (typeof document !== 'undefined' && event.ctrlKey && event.shiftKey && event.key === 'Z') {
-                drawerTriggerRef.current?.click();
-                event.preventDefault();
-            }
-        };
-        if (typeof document !== 'undefined') {
-            document.addEventListener('keydown', handleKeyDown);
-            return () => {
-                document.removeEventListener('keydown', handleKeyDown);
+        if (typeof window !== 'undefined') {
+            const handleKeyDown = (event: any) => {
+                if (typeof document !== 'undefined' && event.ctrlKey && event.shiftKey && event.key === 'Z') {
+                    drawerTriggerRef.current?.click();
+                    event.preventDefault();
+                }
             };
+            if (typeof document !== 'undefined') {
+                document.addEventListener('keydown', handleKeyDown);
+                return () => {
+                    document.removeEventListener('keydown', handleKeyDown);
+                };
+            }
         }
     }, []);
 
@@ -75,11 +77,11 @@ export default function CodeEditor() {
                     </DrawerTrigger>
                     <DrawerContent>
                         <div className="flex justify-center w-full">
-                            <CodePanel html={html} css={css} js={js} setHtml={setHtml} setCss={setCss} setJs={setJs}/>
+                            <CodePanel html={html} css={css} js={js} setHtml={setHtml} setCss={setCss} setJs={setJs} />
                         </div>
                     </DrawerContent>
                 </Drawer>
-                <OptionsMenu html={html} css={css} js={js} tags={tags} setTags={setTags}/>
+                <OptionsMenu html={html} css={css} js={js} tags={tags} setTags={setTags} />
             </div>
         </main>
     );

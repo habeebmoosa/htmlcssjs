@@ -24,7 +24,10 @@ export const TextEditor = ({ lang, code, setCode }: TextEditorProps) => {
                 onChange={(value) => {
                     if(value !== undefined) {
                         setCode(value);
-                        localStorage.setItem(lang, value);
+                        
+                        if(window !== undefined) {
+                            localStorage.setItem(lang, value);
+                        }
                     }
                 }}
                 value={code}

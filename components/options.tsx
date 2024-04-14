@@ -28,10 +28,10 @@ export const OptionsMenu = ({ html, css, js, tags, setTags }: OptionsMenuProps) 
         } else {
             if (element.requestFullscreen) {
                 element.requestFullscreen();
-            } else if (element.webkitRequestFullscreen) {
-                element.webkitRequestFullscreen();
-            } else if (element.msRequestFullscreen) {
-                element.msRequestFullscreen();
+            } else if ((element as any).webkitRequestFullscreen) {
+                (element as any).webkitRequestFullscreen();
+            } else if ((element as any).msRequestFullscreen) {
+                (element as any).msRequestFullscreen();
             }
         }
     }

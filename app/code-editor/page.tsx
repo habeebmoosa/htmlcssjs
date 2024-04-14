@@ -43,7 +43,7 @@ export default function CodeEditor() {
 
     const [tags, setTags] = useState<string>(localStorage.getItem('metatagsandcdns') || "");
 
-    const drawerTriggerRef = useRef(null);
+    const drawerTriggerRef = useRef<HTMLButtonElement>(null);
 
     useEffect(() => {
         const handleKeyDown = (event:any) => {

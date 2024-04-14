@@ -1,4 +1,5 @@
 import { FaGear } from "react-icons/fa6";
+import React from "react";
 
 import {
     DropdownMenu,
@@ -8,6 +9,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { MetaTags } from "./metatags";
 import { Dialog, DialogTrigger } from "./ui/dialog";
+import { DownloadZip } from "./downloadzip";
 
 interface OptionsMenuProps {
     html: string;
@@ -19,67 +21,70 @@ interface OptionsMenuProps {
 
 export const OptionsMenu = ({ html, css, js, tags, setTags }: OptionsMenuProps) => {
 
-    let code = `
-    <html>
-        <head>
-            <style>${css}</style>
-            ${tags}
-        </head>
-        <body>
-            ${html}
-            <script>${js}</script>
-        </body>
-    </html>
-    `;
+    const handleFullScreen = () => {
+        const element = document.documentElement;
+        if (document.fullscreenElement) {
+            document.exitFullscreen();
+        } else {
+            if (element.requestFullscreen) {
+                element.requestFullscreen();
+            } else if (element.webkitRequestFullscreen) {
+                element.webkitRequestFullscreen();
+            } else if (element.msRequestFullscreen) {
+                element.msRequestFullscreen();
+            }
+        }
+    }
 
-    const downloadCode = () => {
-        const element = document.createElement("a");
-        const file = new Blob([code], { type: 'text/plain' });
-        element.href = URL.createObjectURL(file);
-        element.download = "code.html";
-        document.body.appendChild(element);
-        element.click();
-    };
-
-    return (
-        <div className="flex items-center hover:cursor-pointer">
-            <DropdownMenu>
-                <DropdownMenuTrigger>
-                    <div className="">
-                        <FaGear size={20} />
-                    </div>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-56">
-                    <DropdownMenuItem className="cursor-pointer"
-                    onClick={()=>{
-                        downloadCode();
-                    }}
-                    >
-                        <span>Download Code</span>
-                    </DropdownMenuItem>
-                    <Dialog>
-                        <DialogTrigger asChild>
-                            <DropdownMenuItem className="cursor-pointer"
-                                onSelect={(e) => e.preventDefault()}
-                            >
-                                <span>Add Meta Tags</span>
-                            </DropdownMenuItem>
-                        </DialogTrigger>
-                        <MetaTags tags={tags} setTags={setTags} />
-                    </Dialog>
-                    <DropdownMenuItem
-                        className="cursor-pointer"
-                        onClick={() => {
-                            localStorage.setItem('html', '');
-                            localStorage.setItem('css', '');
-                            localStorage.setItem('javascript', '');
-                            window.location.reload();
-                        }}
-                    >
-                        <span>Reset Code</span>
-                    </DropdownMenuItem>
-                </DropdownMenuContent>
-            </DropdownMenu>
-        </div>
-    )
-}
+        return (
+            <div className="flex items-center hover:cursor-pointer">
+                <DropdownMenu>
+                    <DropdownMenuTrigger>
+                        <div className="">
+                            <FaGear size={20} />
+                        </div>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="w-56">
+                        <Dialog>
+                            <DialogTrigger asChild>
+                                <DropdownMenuItem
+                                    className="cursor-pointer"
+                                    onSelect={(e) => e.preventDefault()}
+                                >
+                                    <span>Download Code</span>
+                                </DropdownMenuItem>
+                            </DialogTrigger>
+                            <DownloadZip html={html} css={css} js={js} tags={tags} />
+                        </Dialog>
+                        <Dialog>
+                            <DialogTrigger asChild>
+                                <DropdownMenuItem className="cursor-pointer"
+                                    onSelect={(e) => e.preventDefault()}
+                                >
+                                    <span>Add Meta Tags</span>
+                                </DropdownMenuItem>
+                            </DialogTrigger>
+                            <MetaTags tags={tags} setTags={setTags} />
+                        </Dialog>
+                        <DropdownMenuItem
+                            className="cursor-pointer"
+                            onClick={() => {
+                                localStorage.setItem('html', '');
+                                localStorage.setItem('css', '');
+                                localStorage.setItem('javascript', '');
+                                window.location.reload();
+                            }}
+                        >
+                            <span>Reset Code</span>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem
+                            className="cursor-pointer"
+                            onClick={handleFullScreen}
+                        >
+                            <span>{document.fullscreenElement ? "Exit Fullscreen" : "Fullscreen"}</span>
+                        </DropdownMenuItem>
+                    </DropdownMenuContent>
+                </DropdownMenu>
+            </div>
+        )
+    }

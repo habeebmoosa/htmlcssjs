@@ -7,7 +7,7 @@ interface OutputProps {
 
 export const Output = ({html, css, js, tags}:OutputProps) => {
     return (
-        <div className="w-full h-full bg-white block rounded-lg p-6 text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white">
+        <div className="w-full h-full bg-white block rounded-lg p-4 text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white">
             <iframe
                 srcDoc={`
                     <html>

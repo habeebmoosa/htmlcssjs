@@ -2,10 +2,8 @@ import {
     DialogContent,
     DialogHeader,
     DialogDescription,
-    DialogTitle,
-    DialogFooter
-} from "@/components/ui/dialog"
-import { Button } from "./ui/button";
+    DialogTitle
+} from "@/components/ui/dialog";
 
 interface MetaTagsProps {
     tags: string;

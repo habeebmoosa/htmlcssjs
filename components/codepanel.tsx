@@ -16,6 +16,9 @@ export const CodePanel = ({ html, css, js, setHtml, setCss, setJs }: CodePanelPr
 
     return (
         <div className={`flex flex-col items-center justify-center w-full max-w-5xl mb-4 rounded-lg`}>
+
+            <p className="text-sm mb-1 text-gray-600 hidden lg:block">Use Ctrl+Shift+Z to open and close the code editor</p>
+
             <div className="flex items-center justify-between w-full bg-[#1e1e1e] text-white p-4 rounded-lg">
                 <div className="flex items-center">
                     <div className="w-2 h-2 bg-red-500 rounded-full"></div>
@@ -24,16 +27,16 @@ export const CodePanel = ({ html, css, js, setHtml, setCss, setJs }: CodePanelPr
                 </div>
                 <div className="flex items-center">
                     <button
-                        className={`${code === "html" ? "bg-gray-700" : "bg-gray-500"} rounded-full px-4`}
+                        className={`${code === "html" ? "bg-gray-700" : "bg-gray-500"} rounded-full px-2 text-sm sm:text-lg sm:px-4`}
                         onClick={() => setCode("html")}
                     >HTML</button>
 
                     <button
-                        className={`${code === "css" ? "bg-gray-700" : "bg-gray-500"} rounded-full px-4 ml-2`}
+                        className={`${code === "css" ? "bg-gray-700" : "bg-gray-500"} rounded-full px-2 text-sm sm:text-lg sm:px-4 ml-2`}
                         onClick={() => setCode("css")}
                     >CSS</button>
 
-                    <button className={`${code === "javascript" ? "bg-gray-700" : "bg-gray-500"} rounded-full px-4 ml-2`}
+                    <button className={`${code === "javascript" ? "bg-gray-700" : "bg-gray-500"} rounded-full px-2 text-sm sm:text-lg sm:px-4 ml-2`}
                         onClick={() => setCode("javascript")}
                     >JavaScript</button>
                 </div>

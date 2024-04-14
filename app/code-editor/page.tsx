@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { CodePanel } from "@/components/codepanel";
 import { Output } from "@/components/output";
@@ -13,14 +13,53 @@ import { OptionsMenu } from "@/components/options";
 
 export default function CodeEditor() {
 
-    const [html, setHtml] = useState<string>(localStorage.getItem('html') || "");
-    const [css, setCss] = useState<string>(localStorage.getItem('css') || "");
+    const [html, setHtml] = useState<string>(localStorage.getItem('html') || 
+    `<h1 class="heading">Here you can see the output of your 
+        <span class="workTitle">work!</span>
+    </h1>`
+    );
+
+    const [css, setCss] = useState<string>(localStorage.getItem('css') || 
+    `.heading{
+        text-align: center;
+        margin-top: 150px;
+        font-size: 3.5rem;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      }
+      
+      .workTitle{
+          background-image: linear-gradient(to right, #ff6b81, #6b5b95, #4b5c69);
+      
+          -webkit-background-clip: text;
+          background-clip: text;
+      
+          color: transparent;
+      
+          letter-spacing: 0.05em;
+      }`
+    );
+    
     const [js, setJs] = useState<string>(localStorage.getItem('javascript') || "");
 
     const [tags, setTags] = useState<string>(localStorage.getItem('metatagsandcdns') || "");
 
+    const drawerTriggerRef = useRef(null);
+
+    useEffect(() => {
+        const handleKeyDown = (event:any) => {
+            if (event.ctrlKey && event.shiftKey && event.key === 'Z') {
+                drawerTriggerRef.current?.click();
+                event.preventDefault();
+            }
+        };
+        document.addEventListener('keydown', handleKeyDown);
+        return () => {
+            document.removeEventListener('keydown', handleKeyDown);
+        };
+    }, []);
+
     return (
-        <main className="flex h-screen flex-col items-center justify-between px-6 pt-2 bg-gray-200">
+        <main className="flex h-screen flex-col items-center justify-between md:px-6 md:pt-2 p-1 bg-gray-200">
             <Output html={html} css={css} js={js} tags={tags} />
             <div className="flex items-center justify-between w-full max-w-5xl bg-[#1e1e1e] text-white px-4 rounded-lg m-2">
                 <div className="flex items-center">
@@ -29,7 +68,7 @@ export default function CodeEditor() {
                     <div className="w-2 h-2 bg-green-500 rounded-full ml-2"></div>
                 </div>
                 <Drawer>
-                    <DrawerTrigger asChild>
+                    <DrawerTrigger ref={drawerTriggerRef} asChild>
                         <div className="hover:cursor-pointer p-4">
                             Click to open Code Editor
                         </div>

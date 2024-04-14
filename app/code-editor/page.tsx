@@ -29,17 +29,33 @@ export default function CodeEditor() {
         }
     }, []);
 
+    // useEffect(() => {
+    //     const handleKeyDown = (event:any) => {
+    //         if (event.ctrlKey && event.shiftKey && event.key === 'Z') {
+    //             drawerTriggerRef.current?.click();
+    //             event.preventDefault();
+    //         }
+    //     };
+    //     document.addEventListener('keydown', handleKeyDown);
+    //     return () => {
+    //         document.removeEventListener('keydown', handleKeyDown);
+    //     };
+    // }, []);
+
+
     useEffect(() => {
-        const handleKeyDown = (event:any) => {
-            if (event.ctrlKey && event.shiftKey && event.key === 'Z') {
+        const handleKeyDown = (event: any) => {
+            if (typeof document !== 'undefined' && event.ctrlKey && event.shiftKey && event.key === 'Z') {
                 drawerTriggerRef.current?.click();
                 event.preventDefault();
             }
         };
-        document.addEventListener('keydown', handleKeyDown);
-        return () => {
-            document.removeEventListener('keydown', handleKeyDown);
-        };
+        if (typeof document !== 'undefined') {
+            document.addEventListener('keydown', handleKeyDown);
+            return () => {
+                document.removeEventListener('keydown', handleKeyDown);
+            };
+        }
     }, []);
 
     return (

@@ -17,12 +17,6 @@ export const MetaTags = ({ tags, setTags }: MetaTagsProps) => {
                 <DialogTitle>Meta Tags</DialogTitle>
                 <DialogDescription>
                     Add meta tags to your project to improve SEO. You can also add CND's for libraries like Bootstrap, TailwindCSS, etc.
-                    Just add like this,
-                    {/* <div>
-                        {`<link rel="stylesheet" href="https://cdn.jsde...">`}
-                        <br />
-                        {`<script src="https://cdn.j...></script>`}
-                    </div> */}
                 </DialogDescription>
             </DialogHeader>
             <div className="flex flex-col space-y-4">

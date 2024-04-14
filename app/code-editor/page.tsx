@@ -13,37 +13,21 @@ import { OptionsMenu } from "@/components/options";
 
 export default function CodeEditor() {
 
-    const [html, setHtml] = useState<string>(localStorage.getItem('html') || 
-    `<h1 class="heading">Here you can see the output of your 
-        <span class="workTitle">work!</span>
-    </h1>`
-    );
-
-    const [css, setCss] = useState<string>(localStorage.getItem('css') || 
-    `.heading{
-        text-align: center;
-        margin-top: 150px;
-        font-size: 3.5rem;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-      }
-      
-      .workTitle{
-          background-image: linear-gradient(to right, #ff6b81, #6b5b95, #4b5c69);
-      
-          -webkit-background-clip: text;
-          background-clip: text;
-      
-          color: transparent;
-      
-          letter-spacing: 0.05em;
-      }`
-    );
-    
-    const [js, setJs] = useState<string>(localStorage.getItem('javascript') || "");
-
-    const [tags, setTags] = useState<string>(localStorage.getItem('metatagsandcdns') || "");
+    const [html, setHtml] = useState<string>("");
+    const [css, setCss] = useState<string>("");
+    const [js, setJs] = useState<string>("");
+    const [tags, setTags] = useState<string>("");
 
     const drawerTriggerRef = useRef<HTMLButtonElement>(null);
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            setHtml(localStorage.getItem('html') || `<h1 class="heading">Here you can see the output of your <span class="workTitle">work!</span></h1>`);
+            setCss(localStorage.getItem('css') || `.heading { text-align: center; margin-top: 150px; font-size: 3.5rem; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; } .workTitle { background-image: linear-gradient(to right, #ff6b81, #6b5b95, #4b5c69); -webkit-background-clip: text; background-clip: text; color: transparent; letter-spacing: 0.05em; }`);
+            setJs(localStorage.getItem('javascript') || "");
+            setTags(localStorage.getItem('metatagsandcdns') || "");
+        }
+    }, []);
 
     useEffect(() => {
         const handleKeyDown = (event:any) => {

@@ -10,6 +10,8 @@ import {
     DrawerTrigger,
 } from "@/components/ui/drawer";
 import { OptionsMenu } from "@/components/options";
+import { IoArrowBackCircle } from "react-icons/io5";
+import Link from "next/link";
 
 export default function CodeEditor() {
 
@@ -50,9 +52,9 @@ export default function CodeEditor() {
             <Output html={html} css={css} js={js} tags={tags} />
             <div className="flex items-center justify-between w-full max-w-5xl bg-[#1e1e1e] text-white px-4 rounded-lg m-2">
                 <div className="flex items-center">
-                    <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                    <div className="w-2 h-2 bg-yellow-500 rounded-full ml-2"></div>
-                    <div className="w-2 h-2 bg-green-500 rounded-full ml-2"></div>
+                    <Link href={"/"}>
+                        <IoArrowBackCircle size={25} />
+                    </Link>
                 </div>
                 <Drawer>
                     <DrawerTrigger ref={drawerTriggerRef} asChild>

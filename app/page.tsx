@@ -15,7 +15,7 @@ export default function Home() {
       <nav className="sm:px-12 mx-auto flex items-center justify-between p-4 shadow-2xl bg-white bg-opacity-30">
         <div className="flex flex-row items-center">
           <p className="text-3xl text-gray-500">{"["}</p>
-          <h1 className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-2xl tracking-tight text-transparent font-bold">HTML CSS JS</h1>
+          <h1 className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-2xl tracking-tight text-transparent font-bold">{"</>"}</h1>
           <p className="text-3xl text-gray-500">{"]"}</p>
         </div>
         <div>
@@ -43,7 +43,7 @@ export default function Home() {
 
       <div className="flex flex-col items-center mt-10 mx-2">
         <Image
-          src="/heroImage.png"
+          src="/hero-image.png"
           alt="Code Editor"
           width={1000}
           height={600}
@@ -113,7 +113,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="flex flex-col items-center mt-16 w-full bg-gray-900">
+      <footer className="flex flex-col items-center mt-16 w-full bg-gray-900 pt-10">
         <div className="flex flex-col lg:flex-row items-center lg:justify-between lg:gap-72">
           <div className="flex flex-row items-center gap-4 p-4">
             <p className="text-3xl text-gray-200">{"["}</p>

@@ -14,9 +14,14 @@ export default function Home() {
     <main className="">
       <nav className="sm:px-12 mx-auto flex items-center justify-between p-4 shadow-2xl bg-white bg-opacity-30">
         <div className="flex flex-row items-center">
-          <p className="text-3xl text-gray-500">{"["}</p>
-          <h1 className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-2xl tracking-tight text-transparent font-bold">{"</>"}</h1>
-          <p className="text-3xl text-gray-500">{"]"}</p>
+        <h1 className="hidden sm:block bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-2xl tracking-tight text-transparent font-bold">HTML CSS JS</h1>
+          <Image
+            src="/logo2.png"
+            alt="HTML CSS JS"
+            width={60}
+            height={60}
+            className="pl-2"
+          />
         </div>
         <div>
           <Link href={"/code-editor"}>

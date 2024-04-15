@@ -22,6 +22,7 @@ export default function CodeEditor() {
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
+
             setHtml(localStorage.getItem('html') || `<h1 class="heading">Here you can see the output of your <span class="workTitle">work!</span></h1>`);
             setCss(localStorage.getItem('css') || `.heading { text-align: center; margin-top: 150px; font-size: 3.5rem; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; } .workTitle { background-image: linear-gradient(to right, #ff6b81, #6b5b95, #4b5c69); -webkit-background-clip: text; background-clip: text; color: transparent; letter-spacing: 0.05em; }`);
             setJs(localStorage.getItem('javascript') || "");
@@ -29,34 +30,18 @@ export default function CodeEditor() {
         }
     }, []);
 
-    // useEffect(() => {
-    //     const handleKeyDown = (event:any) => {
-    //         if (event.ctrlKey && event.shiftKey && event.key === 'Z') {
-    //             drawerTriggerRef.current?.click();
-    //             event.preventDefault();
-    //         }
-    //     };
-    //     document.addEventListener('keydown', handleKeyDown);
-    //     return () => {
-    //         document.removeEventListener('keydown', handleKeyDown);
-    //     };
-    // }, []);
-
-
     useEffect(() => {
-        if (typeof window !== 'undefined') {
-            const handleKeyDown = (event: any) => {
-                if (typeof document !== 'undefined' && event.ctrlKey && event.shiftKey && event.key === 'Z') {
-                    drawerTriggerRef.current?.click();
-                    event.preventDefault();
-                }
-            };
-            if (typeof document !== 'undefined') {
-                document.addEventListener('keydown', handleKeyDown);
-                return () => {
-                    document.removeEventListener('keydown', handleKeyDown);
-                };
+        const handleKeyDown = (event: any) => {
+            if (typeof window !== 'undefined' && event.ctrlKey && event.shiftKey && event.key === 'Z') {
+                drawerTriggerRef.current?.click();
+                event.preventDefault();
             }
+        };
+        if (typeof window !== 'undefined') {
+            document.addEventListener('keydown', handleKeyDown);
+            return () => {
+                document.removeEventListener('keydown', handleKeyDown);
+            };
         }
     }, []);
 

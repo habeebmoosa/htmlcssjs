@@ -23,7 +23,7 @@ export default function Home() {
             <h1 data-animate="title" className="hidden md:block text-6xl font-bold"> Welcome to <span className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text tracking-tight text-transparent">HTML CSS JS</span></h1>
             <h1 data-animate="title" className="md:hidden text-5xl font-bold"> Welcome to <br /><span className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text tracking-tight text-transparent">HTML CSS JS</span></h1>
           </div>
-          <div className="mt-8">
+          <div className="mt-8 px-1">
             <p className="text-xl max-w-[40rem] text-center">It is a simple code editor for HTML, CSS, and JavaScript. You can write your code and see the output in real-time.</p>
           </div>
         </header>
@@ -66,6 +66,17 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="flex flex-col items-center mt-32 mx-2">
+        <Image
+          src="/texteditor.png"
+          alt="Code Editor"
+          width={1000}
+          height={600}
+          quality={100}
+          className="rounded-lg shadow-2xl"
+        />
+      </div>
+
       <section className="flex flex-col items-center mt-32 mx-2">
         <div>
           <h2 className="text-4xl font-bold">Features</h2>
@@ -79,6 +90,12 @@ export default function Home() {
           </div>
           <div className="flex items-center justify-center bg-gray-700 p-4 rounded-lg w-full">
             <p className="text-xl md:text-2xl font-bold text-gray-400">Downlodable Code</p>
+          </div>
+          <div className="flex items-center justify-center bg-gray-700 p-4 rounded-lg w-full">
+            <p className="text-xl md:text-2xl font-bold text-gray-400">Responsive Design</p>
+          </div>
+          <div className="flex items-center justify-center bg-gray-700 p-4 rounded-lg w-full">
+            <p className="text-xl md:text-2xl font-bold text-gray-400">Keyboard shortcut</p>
           </div>
         </div>
       </section>
@@ -114,7 +131,8 @@ export default function Home() {
           <h2 className="text-4xl font-bold">Contributing</h2>
         </div>
         <div className="mt-8">
-          <p className="text-xl max-w-[40rem] text-center">You can contribute to the project by raising issues and creating pull requests.</p>
+          <p className="text-xl max-w-[40rem] text-center">
+            Explore the project's source code on GitHub. And you can contribute to the project by raising issues and creating pull requests.</p>
         </div>
         <div className="mt-8">
           <a href={"https://github.com/habeebmoosa/htmlcssjs"} target={"_blank"}>

@@ -21,8 +21,8 @@ export default function About() {
                     <div className="mt-12 max-w-[600px] px-5">
                         <p className="text-lg text-gray-700 mb-4">
                             HTML CSS JS Code is a project developed by{' '}
-                            <span className="font-bold hover:underline">
-                                <Link href={"https://habeebmoosa.vercel.app/"} target={"_blank"}>Habeeb Moosa</Link>
+                            <span className="font-bold underline hover:text-gray-500">
+                                <Link href={"https://habeebmoosa.vercel.app"} target={"_blank"}>Habeeb Moosa</Link>
                             </span>, a Full Stack
                             Developer, to showcase skills and abilities in building static sites
                             in real-time.
@@ -46,7 +46,7 @@ export default function About() {
                         <p className="text-lg text-gray-700">
                             Explore the project at{' '}
                             <Link href="https://htmlcssjscode.vercel.app/"
-                            className="text-blue-500 hover:underline cursor-pointer transition duration-300 ease-in-out"
+                            className="underline hover:text-gray-500"
                             >
                                     htmlcssjscode.vercel.app
                             </Link>

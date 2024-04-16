@@ -25,9 +25,9 @@ export const Footer = () => {
       </div>
       <div className="w-96 h-[0.07rem] bg-gray-500"></div>
       <div className="flex flex-col items-center justify-center p-4">
-        <p className="text-gray-200">&copy; 2024 <Link href={"/"} className="hover:text-gray-400 hover:underline">HTML CSS JS.</Link> All rights reserved.</p>
+        <p className="text-gray-200">&copy; 2024 <Link href={"/"} className="hover:text-gray-400 hover:underline">HTML CSS JS Code.</Link> All rights reserved.</p>
         <p className="text-gray-200">Designed and developed by</p>
-        <p><a href="/" className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text tracking-tight text-transparent"> Habeeb Moosa</a></p>
+        <p><a href={"https://habeebmoosa.vercel.app"} className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text tracking-tight text-transparent"> Habeeb Moosa</a></p>
       </div>
     </footer>
   )

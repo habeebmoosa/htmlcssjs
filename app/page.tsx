@@ -132,7 +132,7 @@ export default function Home() {
         </div>
         <div className="mt-8">
           <p className="text-xl max-w-[40rem] text-center">
-            Explore the project's source code on GitHub. And you can contribute to the project by raising issues and creating pull requests.</p>
+            Explore the project source code on GitHub. And you can contribute to the project by raising issues and creating pull requests.</p>
         </div>
         <div className="mt-8">
           <a href={"https://github.com/habeebmoosa/htmlcssjs"} target={"_blank"}>

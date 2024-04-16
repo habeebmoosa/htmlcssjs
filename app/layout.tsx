@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "HTML CSS JS",
+  title: "HTML CSS JS Code",
   description: "It is a simple code editor for HTML, CSS, and JavaScript. You can write your code and see the output in real-time.",
 };
 

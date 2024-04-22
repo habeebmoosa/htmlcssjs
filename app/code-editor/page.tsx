@@ -15,6 +15,8 @@ import Link from "next/link";
 
 export default function CodeEditor() {
 
+    const [isEditorOpen, setIsEditorOpen] = useState(true);
+
     const [html, setHtml] = useState<string>("");
     const [css, setCss] = useState<string>("");
     const [js, setJs] = useState<string>("");
@@ -63,6 +65,56 @@ export default function CodeEditor() {
                         </div>
                     </DrawerTrigger>
                     <DrawerContent>
+                        {/* Advertisement */}
+                        {
+                            isEditorOpen && (
+                                <div className="flex justify-center w-full">
+                            <iframe
+                                title={"advertisement"}
+                                srcDoc={`
+                                <!DOCTYPE html>
+                                <html>
+                                <head>
+                                    <style>
+                                        /* Container styling */
+                                        .header-container {
+                                            display: flex;
+                                            align-items: center;
+                                            background-color: #f1f1f1;
+                                        }
+                                
+                                        /* Image styling */
+                                        .header-container img {
+                                            width: 30px; 
+                                            height: auto; 
+                                            margin-right: 10px;
+                                        }
+                                
+                                        /* Text styling */
+                                        .header-container .ad {
+                                            font-size: 16px; 
+                                            margin: 0;
+                                            text-decoration: none;
+                                            color: black;
+                                        }
+                                    </style>
+                                </head>
+                                <body>
+                                    <a href="https://habeebmoosa.vercel.app" target="_blank">
+                                        <div class="header-container">
+                                            <img src="https://habeebmoosa.vercel.app/assets/hm-UKLoQL6t.jpg" alt="advertisement">
+                                            <h1 class="ad">Habeeb Moosa - Full Stack Developer</h1>
+                                        </div>
+                                    </a>
+                                </body>
+                                </html>
+                                
+                                `}
+                                className={"w-full h-12 mb-1 max-w-96"}
+                            ></iframe>
+                        </div>
+                            )
+                        }
                         <div className="flex justify-center w-full">
                             <CodePanel html={html} css={css} js={js} setHtml={setHtml} setCss={setCss} setJs={setJs} />
                         </div>
